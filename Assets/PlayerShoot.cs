@@ -6,7 +6,7 @@ public class PlayerShoot : MonoBehaviour
 {
     private Camera cam;
     [SerializeField] private GameObject projectile;
-    private float shotDistance = 1f;
+    private float spawnDistance = 1f;
 
 
     void Start()
@@ -16,10 +16,10 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
 
-            Instantiate(projectile, transform.position + shotDistance * transform.forward, transform.rotation);
+            Instantiate(projectile, transform.position + spawnDistance * transform.forward, transform.rotation);
             //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             //Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
         }
