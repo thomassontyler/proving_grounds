@@ -22,9 +22,6 @@ public class Floater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        transform
-=======
         // Spin object around Y-Axis
         transform.Rotate(new Vector3(0f, Time.deltaTime * degreesPerSecond, 0f), Space.World);
 
@@ -34,6 +31,5 @@ public class Floater : MonoBehaviour
 
         transform.position = tempPos;
 
->>>>>>> 21e008352fb7170b357c844b0c9daf7935c0e3a5
     }
 }
