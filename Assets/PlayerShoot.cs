@@ -18,11 +18,17 @@ public class PlayerShoot : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-
-            Instantiate(projectile, transform.position + spawnDistance * transform.forward, transform.rotation);
-            //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            //Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            GameObject newProjectile = Instantiate(projectile, ray.origin, transform.rotation);
+            newProjectile.GetComponent<Rigidbody>().AddForce(ray.direction * 10f);
+            //newProjectile.Rigidbody.AddForce(ray.direction * 10f);
+                
+    
+            
+            //Instantiate(projectile, transform.position + spawnDistance * transform.forward, transform.rotation);
+        
         }
         
     }
+
 }
