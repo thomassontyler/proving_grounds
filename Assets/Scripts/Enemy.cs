@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Vector3 direction;
-    float speed = 50.0f;
+    float speed = 2.0f;
     [SerializeField] private Transform player;
+    private Vector3 initialOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +16,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     void InitVariables()
     {
-        direction = (transform.position - player.position);
+        initialOffset = (transform.position - new Vector3(0, 0, 0));
     }
 }
